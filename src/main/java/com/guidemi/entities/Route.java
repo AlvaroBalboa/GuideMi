@@ -1,6 +1,7 @@
 package com.guidemi.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -10,6 +11,8 @@ import javax.persistence.Table;
 @Table(name = "user_routes_saved")
 public class Route {
 
+    @ManyToOne
+    Users user;
     //IN here I want to try and code the routes to each person this will also be its own database;
 
 //    origin: LatLng | String | google.maps.Place,

@@ -10,7 +10,12 @@ import javax.persistence.Table;
 @Table(name = "points_of_interest")
 public class POI {
 
-    
+    long lat;
+    long lng;
+
+
+
+
     /*//TODO THIS IS THE PLACES FROM GOOGLE INFO
 
     {
@@ -201,4 +206,5 @@ public class POI {
    "status" : "OK"
 }
      */
+
 }
