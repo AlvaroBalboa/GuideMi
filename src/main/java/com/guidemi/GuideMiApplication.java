@@ -2,8 +2,10 @@ package com.guidemi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -21,6 +23,10 @@ public class GuideMiApplication {
 		SpringApplication.run(GuideMiApplication.class, args);
 	}
 
+	@Bean
+	RestTemplate restTemplate(RestTemplateBuilder builder){
+		return builder.build();
+	}
 
 	@Bean
 	public Docket swaggerSettings() {
