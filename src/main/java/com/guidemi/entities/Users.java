@@ -14,7 +14,7 @@ import java.util.Locale;
 
 
 @Entity
-@Table(name = "guidemii_user_data")
+@Table(name = "guidemi_user_data")
 public class Users {
 
     @Id
@@ -67,7 +67,7 @@ public class Users {
     private ZonedDateTime resetDate = null;
 
     //@OneToMany
-    @Column
+//    @Column
     private List<Users> friend;
 
 //    @JsonIgnore
@@ -81,6 +81,8 @@ public class Users {
 //    private Set<Authority> authorities = new HashSet<>();
 
 
+    public Users() {
+    }
 
     //Lowercase the login before saving it in database
     public void setLogin(String login) {

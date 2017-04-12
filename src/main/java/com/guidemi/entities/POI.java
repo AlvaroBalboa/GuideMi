@@ -1,6 +1,8 @@
 package com.guidemi.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -10,13 +12,19 @@ import javax.persistence.Table;
 @Table(name = "points_of_interest")
 public class POI {
 
+    @Id
+    @GeneratedValue
+    int id;
+
+
     long lat;
     long lng;
 
+    public POI() {
+    }
 
 
-
-    /*//TODO THIS IS THE PLACES FROM GOOGLE INFO
+/*//TODO THIS IS THE PLACES FROM GOOGLE INFO
 
     {
    "html_attributions" : [],

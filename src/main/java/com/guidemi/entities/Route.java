@@ -1,18 +1,21 @@
 package com.guidemi.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-/**
- * Created by souporman on 4/2/17.
- */
+
 @Entity
 @Table(name = "user_routes_saved")
 public class Route {
 
+    @Id
+    @GeneratedValue
+    int id;
+
     @ManyToOne
     Users user;
+
+    public Route() {
+    }
     //IN here I want to try and code the routes to each person this will also be its own database;
 
 //    origin: LatLng | String | google.maps.Place,
@@ -28,3 +31,4 @@ public class Route {
 //    avoidTolls: Boolean,
 //    region: String
 }
+//TODO grab the pictures
