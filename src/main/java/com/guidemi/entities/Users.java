@@ -66,8 +66,8 @@ public class Users {
     @Column(name = "reset_date")
     private ZonedDateTime resetDate = null;
 
-    //@OneToMany
-//    @Column
+    @Column
+    @OneToMany
     private List<Users> friend;
 
 //    @JsonIgnore

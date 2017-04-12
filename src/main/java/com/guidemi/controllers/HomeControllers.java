@@ -19,6 +19,8 @@ import java.util.Map;
 @Controller
 public class HomeControllers {
 
+
+
     //This is setting up a redirect for the dev cycle
     public static final String REDIRECT = "http://localhost:8080/userProfile";
 
@@ -43,13 +45,13 @@ public class HomeControllers {
     //This uses the appId and the appSecret to get the app token
     @PostConstruct
     public void init(){
-        String tokenGetUrl= "http://graph.facebook.com/oauth/access_token" +
-                "    ?client_id=%s" +
-                "    &client_secret=%s" +
-                "    &grant_type=client_credentials";
-        String appTokenResults = restTemplate.getForObject(String.format(tokenGetUrl,appId,appSecret),String.class);
-        String [] tokenMatrixResult = appTokenResults.split("=");
-        appAccessToken = tokenMatrixResult[1];
+        String tokenGetUrl= "https://graph.facebook.com/oauth/access_token" +
+                "?client_id=%s" +
+                "&client_secret=%s" +
+                "&grant_type=client_credentials";
+        HashMap appTokenResults = restTemplate.getForObject(String.format(tokenGetUrl,appId,appSecret),HashMap.class);
+        //String [] tokenMatrixResult = appTokenResults.split("=");
+        appAccessToken = (String) appTokenResults.get("access_token");
     }
 
     //This is a controller for the home page
@@ -67,7 +69,7 @@ public class HomeControllers {
     @RequestMapping(path = "/userProfile", method = RequestMethod.GET)
     public String userPage(Model model, HttpSession session){
         model.addAttribute("");
-        return "userProfile";
+        return "userProfile.html";
     }
 
     //This is the route that the facebook Oauth will take to hand out the user information
