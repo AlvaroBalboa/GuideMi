@@ -22,7 +22,7 @@ public class HomeControllers {
 
 
     //This is setting up a redirect for the dev cycle
-    public static final String REDIRECT = "http://localhost:8080/userProfile";
+    public static final String REDIRECT = "http://localhost:8080/user/login";
 
     //I want to keep the same session getter and don't want it getting confussed with anything else
     public static final String SESSION_USERNAME= "username";
@@ -59,21 +59,23 @@ public class HomeControllers {
     public String home(Model model,HttpSession session){
 
 //        model.addAttribute("username",session.getAttribute(SESSION_USERNAME));
-//        model.addAttribute("appId",appId);
 
+        model.addAttribute("appId",appId);
         model.addAttribute("redirect",REDIRECT);
+        int x = 0;
         return "index";
     }
 
     //This is a controller for the userProfile page I want to pre fill out if the create user form
-    @RequestMapping(path = "/userProfile", method = RequestMethod.GET)
+    @RequestMapping(path = "/user", method = RequestMethod.GET)
     public String userPage(Model model, HttpSession session){
-        model.addAttribute("");
-        return "userProfile.html";
+        model.addAttribute("appId",appId);
+        return "userProfile";
     }
+    "/login?error=access_denied&error_code=200&error_description=Permissions+error&error_reason=user_denied#_=_"
 
     //This is the route that the facebook Oauth will take to hand out the user information
-    @RequestMapping(path = "/userProfile/login",method = RequestMethod.GET)
+    @RequestMapping(path = "/user/login",method = RequestMethod.GET)
     public String facebookLogin(String code, HttpSession session){
         String tokenURL="https://graph.facebook.com/v2.8/oauth/access_token?" +
                 "   client_id=%s}" +
