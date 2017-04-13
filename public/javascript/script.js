@@ -2,17 +2,21 @@
  * Created by souporman on 4/13/17.
  */
 
-(function(window,google){
+(function(window, google){
 
     var options = {
         center:{
-            lat:'38.6582',
-            lng:'77.2497'
+            lat: 38.6184990,
+            lng: -77.2934160
         },
-        zoom:10
-    }
-    frameElement = document.getElementById('googleMap'),
+        zoom: 10,
+        disableDefulatUI:true,
+        scrollwheel:false,
+        draggable:false,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+    },
+    element = document.getElementById('googleMap'),
 
-    map = new google.map.Map(element,options);
+    map = new google.maps.Map(element,options);
 
-}(window,google));
+}(window, google));

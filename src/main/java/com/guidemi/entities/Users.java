@@ -54,17 +54,20 @@ public class Users {
     @Column
     private String currentLocation;
 
-    @JsonIgnore
-    @Size(max = 20)
-    @Column(name = "activation_key", length = 20)
-    private String activationKey;
-
-    @Size(max = 20)
-    @Column(name = "reset_key", length = 20)
-    private String resetKey;
-
-    @Column(name = "reset_date")
-    private ZonedDateTime resetDate = null;
+    //TODO the google API week or me
+//
+//    @JsonIgnore
+//    @Size(max = 20)
+//    @Column(name = "activation_key", length = 20)
+//    private String activationKey;
+//
+//    @Size(max = 20)
+//    @Column(name = "reset_key", length = 20)
+//    private String resetKey;
+//
+//    @Column(name = "reset_date")
+//    private ZonedDateTime resetDate = null;
+//    5 day timer
 
     @Column
     @OneToMany
@@ -157,29 +160,29 @@ public class Users {
         this.currentLocation = currentLocation;
     }
 
-    public String getActivationKey() {
-        return activationKey;
-    }
-
-    public void setActivationKey(String activationKey) {
-        this.activationKey = activationKey;
-    }
-
-    public String getResetKey() {
-        return resetKey;
-    }
-
-    public void setResetKey(String resetKey) {
-        this.resetKey = resetKey;
-    }
-
-    public ZonedDateTime getResetDate() {
-        return resetDate;
-    }
-
-    public void setResetDate(ZonedDateTime resetDate) {
-        this.resetDate = resetDate;
-    }
+//    public String getActivationKey() {
+//        return activationKey;
+//    }
+//
+//    public void setActivationKey(String activationKey) {
+//        this.activationKey = activationKey;
+//    }
+//
+//    public String getResetKey() {
+//        return resetKey;
+//    }
+//
+//    public void setResetKey(String resetKey) {
+//        this.resetKey = resetKey;
+//    }
+//
+//    public ZonedDateTime getResetDate() {
+//        return resetDate;
+//    }
+//
+//    public void setResetDate(ZonedDateTime resetDate) {
+//        this.resetDate = resetDate;
+//    }
 
     public List<Users> getFriend() {
         return friend;
