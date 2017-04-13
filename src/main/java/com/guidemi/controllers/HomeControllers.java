@@ -35,6 +35,10 @@ public class HomeControllers {
     @Value("${facebook.app-id}")
     public String appId;
 
+    //This is the GoogleMaps API key
+    @Value("${google.api-key}")
+    public String googleMapApiKey;
+
     //This bean was created in the Application class and this lets me use the functions associated with it
     @Autowired
     RestTemplate restTemplate;
@@ -50,7 +54,6 @@ public class HomeControllers {
                 "&client_secret=%s" +
                 "&grant_type=client_credentials";
         HashMap appTokenResults = restTemplate.getForObject(String.format(tokenGetUrl,appId,appSecret),HashMap.class);
-        //String [] tokenMatrixResult = appTokenResults.split("=");
         appAccessToken = (String) appTokenResults.get("access_token");
     }
 
@@ -60,19 +63,20 @@ public class HomeControllers {
 
 //        model.addAttribute("username",session.getAttribute(SESSION_USERNAME));
 
+        model.addAttribute("googleMapApiKey",googleMapApiKey);
         model.addAttribute("appId",appId);
         model.addAttribute("redirect",REDIRECT);
-        int x = 0;
         return "index";
     }
 
     //This is a controller for the userProfile page I want to pre fill out if the create user form
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public String userPage(Model model, HttpSession session){
-        model.addAttribute("appId",appId);
+        //model.addAttribute("appId",appId);
         return "userProfile";
     }
-    "/login?error=access_denied&error_code=200&error_description=Permissions+error&error_reason=user_denied#_=_"
+
+    //"/login?error=access_denied&error_code=200&error_description=Permissions+error&error_reason=user_denied#_=_"
 
     //This is the route that the facebook Oauth will take to hand out the user information
     @RequestMapping(path = "/user/login",method = RequestMethod.GET)

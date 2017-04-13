@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <header>
@@ -10,16 +11,21 @@
 
     </nav>
 </header>
-{{appId}}
+
 HELLO WORLD
 <a href="https://www.facebook.com/v2.8/dialog/oauth?client_id={{appId}}&redirect_uri={{redirect}}">Login with Facebook</a>
 
+<div id="googleMap">
 
-<iframe src="//www.google.com/maps/embed/v1/directions?origin=Tate+Modern
-      &destination=Tower+of+London
-      &key=YOUR_API_KEY">
-</iframe>
-
-<script src="angularJSmini.js"></script>
+</div>
+<!--<iframe src="//www.google.com/maps/embed/v1/directions?origin=Tate+Modern-->
+      <!--&destination=Tower+of+London-->
+      <!--&key={{googleMapApiKey}}">-->
+<!--</iframe>-->
+<!--<script src="script.js"></script>-->
+<!--<script src="angularJSmini.js"></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key={{googleMapApiKey}}"></script>﻿
+<script src="/javascript/script.js"></script>
+<script src="/javascript/angularJSmini.js"></script>
 </body>
 </html>
