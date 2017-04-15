@@ -10,6 +10,80 @@
 
     </nav>
 </header>
+
+<!--&lt;!&ndash;<a href="https://www.facebook.com/v2.8/dialog/oauth?client_id={{appId}}&redirect_uri={{redirect}}">Login with Facebook</a>&ndash;&gt;-->
+
+<div class="signup-container signup-container-non-modal no-left-padding no-right-padding col-lg-4 col-md-4 col-sm-4 col-xs-4">
+    <div data-react-class="SignupForm" data-react-props="{&quot;returnTo&quot;:&quot;https://www.alltrails.com/us/virginia/hiking&quot;,&quot;trackOptimizely&quot;:false}" id="signup-form">
+        <form data-reactroot="" data-reactid="1" data-react-checksum="-607942385">
+            <div class="fb-reg" data-reactid="2">
+                <div class="fb btn-container" data-reactid="3">
+                    <a class="flat-fb-btn" href="#" data-reactid="4">
+                        <div data-reactid="5"><span data-reactid="6">Sign up with Facebook</span>
+                        </div>
+                    </a>
+                </div>
+                <div id="googleSignInBtn" class="google btn-container" data-reactid="7">
+                    <a class="flat-fb-btn" href="#" data-reactid="8">
+                        <div data-reactid="9">
+                            <span data-reactid="10">Sign up with Google</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="or-container" data-reactid="11">
+                <h2 class="or-rule" data-reactid="12">
+                    <span data-reactid="13">or</span>
+                </h2>
+            </div>
+            <div id="register-form" data-reactid="14">
+                <div class="form-content" data-reactid="15">
+                    <div class="holder" data-reactid="16">
+                        <div class="input optional string required" data-reactid="17">
+                            <input type="text" class="string required text" id="user_first_name" maxlength="40" placeholder="First name" required="" size="40" data-reactid="18">
+                            <!-- react-text: 19 --><!-- /react-text -->
+                        </div>
+                    </div>
+                    <div class="holder" data-reactid="20">
+                        <div class="input optional string required" data-reactid="21">
+                            <input type="text" class="string required text" id="user_last_name" maxlength="40" placeholder="Last name" required="" size="40" data-reactid="22">
+                            <!-- react-text: 23 --><!-- /react-text -->
+                        </div>
+                    </div>
+                    <div class="holder" data-reactid="24">
+                        <div class="input required string required" data-reactid="25">
+                            <input type="email" class="string email required text" id="user_email" maxlength="150" placeholder="Email" required="" size="50" data-reactid="26">
+                            <!-- react-text: 27 --><!-- /react-text -->
+                        </div>
+                    </div>
+                    <div class="holder" data-reactid="28">
+                        <div class="input password required" data-reactid="29">
+                            <input type="password" class="string password required text" id="user_password" maxlength="20" placeholder="Password" required="" size="50" data-reactid="30">
+                            <!-- react-text: 31 --><!-- /react-text -->
+                        </div>
+                    </div>
+                </div>
+                <div class="coreg-container" data-reactid="32">
+                    <ul data-reactid="33">
+                        <li data-reactid="34">
+                            <input type="checkbox" checked="" class="floatleft" id="user_subscribe_to_coregOffer" name="user[subscribe_to_coregOffer]" data-reactid="35">
+                            <label class="string optional" for="user_subscribe_to_coregOffer" data-reactid="36">
+                                <img class="floatleft" src="https://cdn-assets.alltrails.com/assets/images/offers/10037.jpg" data-reactid="37">
+                                <p class="floatleft" data-reactid="38">Yes, I'd like to receive exclusive DealFlyer offers in my inbox like extra discounts (up to 30%), shipping offers, giveaways and more!</p>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div data-reactid="39">
+                    <input type="submit" class="new-btn signup" name="commit" value="Sign up" data-reactid="40">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="or-login">
+        <p>Already have an account? <a href="/sign_in">Log in</a>.</p>
+    </div>
+</div>
 <!--THIS will be an if statement for if logged in-->
 <!--if he is then show lower div-->
 <!--if not he has two option create or log in-->
@@ -51,7 +125,7 @@
     </div>
 </div>
 
-<script src="../../../../public/javascript/angularJSmini.js"></script>
+<script src="/javascript/angular.min.js"></script>
 
 </body>
 </html>

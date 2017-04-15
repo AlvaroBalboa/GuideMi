@@ -72,7 +72,9 @@ public class HomeControllers {
     //This is a controller for the userProfile page I want to pre fill out if the create user form
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public String userPage(Model model, HttpSession session){
-        //model.addAttribute("appId",appId);
+
+
+        model.addAttribute("appId",appId);
         return "userProfile";
     }
 

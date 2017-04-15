@@ -26,7 +26,6 @@ public class UsersRoutesRest {
     @Autowired
     POIRepo pois;
 
-
     @RequestMapping(path = "/{userId}/allRoutes",method = RequestMethod.GET)
     public List template(@PathVariable("userId") int userId){
         return routes.findByUserId(userId);

@@ -2,7 +2,6 @@ package com.guidemi.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Email;
-
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -72,17 +71,6 @@ public class Users {
     @Column
     @OneToMany
     private List<Users> friend;
-
-//    @JsonIgnore
-//    @ManyToMany
-//    @JoinTable(
-//            name = "jhi_user_authority",
-//            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "authority_name", referencedColumnName = "name")})
-//    @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-//    @BatchSize(size = 20)
-//    private Set<Authority> authorities = new HashSet<>();
-
 
     public Users() {
     }
@@ -228,14 +216,5 @@ public class Users {
         this.lastName = lastName;
         this.email = email;
     }
-//    public Users(String firstName, String lastName, String email,
-//                 String profilePicture, String currentLocation, List<Users> friend) {
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//        this.profilePicture = profilePicture;
-//        this.currentLocation = currentLocation;
-//        this.friend = friend;
-//    }
 }
 
