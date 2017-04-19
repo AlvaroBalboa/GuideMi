@@ -24,3 +24,32 @@ div {
     /*padding-bottom: 10px;*/
     /*padding-top: 10px;*/
 /*}*/
+.angular-google-map-container {
+    height: 400px;
+    margin-bottom: 15px;
+}
+
+.panel-primary {
+    padding: 15px;
+}
+.selectPicker{
+    width: 100%;
+    padding: 30px 20px;
+    border: none;
+    border-radius: 2px;
+    background-color: #f1f1f1;
+}
+.animate-show-hide.ng-hide {
+    opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+    transition: all linear 0.5s;
+}
+
+.check-element {
+    border: 1px solid black;
+    opacity: 1;
+    padding: 10px;
+}

@@ -19,8 +19,6 @@ import java.util.Map;
 @Controller
 public class HomeControllers {
 
-
-
     //This is setting up a redirect for the dev cycle
     public static final String REDIRECT = "http://localhost:8080/user/login";
 
