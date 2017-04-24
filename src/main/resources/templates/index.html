@@ -26,7 +26,7 @@
     <script data-require="google-maps@1.0.0" data-semver="1.0.0" src="http://maps.google.com/maps/api/js?libraries=places&key={{googleMapApiKey}}"></script>
     <script data-require="lodash-underscore@*" data-semver="2.4.1" src="https://rawgit.com/lodash/lodash/2.4.1/dist/lodash.underscore.min.js"></script>
     <script data-require="angular-google-maps@*" data-semver="1.1.4" src="https://rawgit.com/nlaplante/angular-google-maps/1.1.4/dist/angular-google-maps.min.js"></script>
-    <script src="javascript/app.js"></script>
+    <!--<script src="javascript/app.js"></script>-->
     <!--<script src="/javascript/map.js"></script>-->
 
 </head>
@@ -105,7 +105,8 @@
         <div ng-app="mapApp">
             <div class="panel panel-default" ng-controller="mainController">
                 <div class="panel-body">
-                    <google-map control="map.control" center="map.center" zoom="map.zoom">
+                    <google-map control="map.control" center="map.center" zoom="map.zoom" options="options">
+                        <markers models="randomMarkers" coords="'self'" icon="'icon'"></markers>
                     </google-map>
 
                     <form class="form-horizontal" role="form" id="directionsID">
@@ -126,13 +127,14 @@
                                 <button type="submit" class="btn btn-primary" ng-click="getDirections()">Get Directions</button>
                             </div>
                         </div>
-
+                    </form>
                     <br/>
                     <br/>
                     <div class="form-group">
+                        <form>
                         <label for="attraction_type" class="col-sm-2 control-label">Attraction</label>
                         <div class="col-sm-8">
-                            <select class="selectPicker" id="attraction_type" ng-model="attraction_type" onchange="getAttraction()">
+                            <select class="selectPicker" id="attraction_type" ng-model="attraction_type" ng-change="getAttraction()">
                                 <option value="art_gallery">Art Gallery</option>
                                 <option value="mosque">Mosque</option>
                                 <option value="museum">Museum</option>
@@ -145,16 +147,71 @@
                                 <option value="hindu_temple">Hindu Temple</option>
                             </select>
                         </div>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class="col-sm-offset-2 col-sm-8">
+                        <button class="btn btn-primary" ng-click="showDiv=!showDiv">Show Directions</button>
+                        <div class="check-element animate-show-hide" ng-show="showDiv">
+                            <div id="directionsList" ng-show="directions.showList" class="panel panel-primary">
+                            </div>
+                        </div>
                     </div>
 
-                    </form>
-                    <button class="btn btn-primary" ng-click="showDiv=!showDiv">Show Div</button>                        <br/>
-                        <div class="check-element animate-show-hide" ng-show="showDiv">
-                            <div id="directionsList" ng-show="directions.showList" class="panel panel-primary"></div>
+
+                    <div ng-if="list_art_gallery" >
+                        this is the div is for art_gallery
+
+                        <div ng-repeat="art_gallery in list_art_gallery">
+
+                            <h4>name: {{art_gallery.name}}</h4>
+                            <h5>placeID: {{art_gallery.place_id}}</h5>
+
                         </div>
+                    </div>
+                    <!--this is the div is for mosque-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for museum-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for casino-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for park-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for church-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for stadium-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for synagogue-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for zoo-->
+                    <!--<div>-->
+
+                    <!--</div>-->
+                    <!--this is the div is for hindu_temple-->
+                    <!--<div>-->
+
+                    <!--</div>-->
 
                 </div>
+
+
             </div>
+
+
         </div>
 
         <!--Old stuff from jquery-->
@@ -329,6 +386,8 @@
 <!--<script src="/javascript/script.js"></script>-->
 <script src="/javascript/page-script.js"></script>
 <script src="/javascript/photoslider.js"></script>
+<script src="javascript/app.js"></script>
+
 <!--<script src="/javascript/jqueryMap.js"></script>-->
 
 </body>

@@ -1,6 +1,6 @@
 var myApp = angular.module('mapApp', ['google-maps']);
 
-myApp.controller('mainController', function($scope, $document) {
+myApp.controller('mainController', ['$scope', '$http','$document', function($scope, $http, $document) {
 
     //map object
     $scope.map = {
@@ -12,64 +12,35 @@ myApp.controller('mainController', function($scope, $document) {
         zoom: 7
     };
 
-// function searchResults(results,status) {
-//     console.log(results)
-//     for(var i=0;i<results.length;i++){
-//         var marker = new google.maps.Marker({
-//             position:results[1].geometry.location,
-//             map:map
-//             });
-//     }
-// }
-
-    // function preformSearch(result,attraction) {
-//
-//     // loop for legs location
-//     var total = 0;
-//     var myroute = result.routes[0];
-//     var legSection;
-//
-//     for (var i = 0; i < myroute.legs.length; i++) {
-//         location: myroute.legs[i];
-//
-//         var request = {
-//             legSection:location,
-//             name:attraction
-//         };
-//
-//         service.nearbySearch(request, searchResults());
-//     }
-// }
-
-    // marker object
-    // $scope.marker = {
-    //     center: {
-    //         latitude: -37.812150,
-    //         longitude: 144.971008
-//     //     }
-    // }
+    $scope.options = {
+        scrollwheel:false,
+        disableDefaultUI: true
+    };
 
     // instantiate google map objects for directions
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var directionsService = new google.maps.DirectionsService();
     var geocoder = new google.maps.Geocoder();
-
+    var markers = [];
+    $scope.randomMarkers = markers;
     // instantiates auto complete onto the search bars
-    var options = {
+    var autoCompleteOptions = {
         componentRestrictions: {country: 'us'}
     };
     var input = document.getElementById('origin');
     var otherinput = document.getElementById('destination');
-    autocomplete = new google.maps.places.Autocomplete(input,options);
-    autocomplete = new google.maps.places.Autocomplete(otherinput,options);
+    autocomplete = new google.maps.places.Autocomplete(input,autoCompleteOptions);
+    autocomplete = new google.maps.places.Autocomplete(otherinput,autoCompleteOptions);
 
     $scope.directionsResponse = '';
-    // directions object -- with defaults
+
     $scope.directions = {
         origin: "",
         destination: "",
         showList: false
     };
+
+    var idKey = 'default';
 
     // get directions using google maps api
     $scope.getDirections = function () {
@@ -89,59 +60,229 @@ myApp.controller('mainController', function($scope, $document) {
                 alert('Google route unsuccesfull!');
             }
         });
-    }
+    };
 
-    // $scope.attraction_type = document.getElementById('attraction_type');
-
-    service = new google.maps.places.PlacesService($scope.map);
-
-    // POI
     // this is an change function that recalls the directions api for lat long info
     $scope.getAttraction = function () {
 
         var steps = directionsResponse.routes[0].legs[0].steps;
 
-        // this needs to have a var that has the current leg lat long
         for (var i = 0; i < steps.length; i++) {
             var lng = directionsResponse.routes[0].legs[0].steps[i].end_location.lng();
             var lat = directionsResponse.routes[0].legs[0].steps[i].end_location.lat();
 
-            console.log("making a request with lng, lat: " + lng + " " + lat);
-           // console.log("making a request with lng: " + lng);
+            $http.get('/rest/nearbySearch&'+lat+'&'+lng+'&'+$scope.attraction_type).then(function(response){
+
+                // Marker functionality
+                // var createMarker = function(i,idKey) {
+                //     var ret = {
+                //         latitude: response.data.results[i].geometry.location.lat,
+                //         longitude: response.data.results[i].geometry.location.lng,
+                //         title: 'm' + i,
+                //         icon: '/img/museum_paintings.png'
+                //     };
+                //     ret[idKey] = i;
+                //     console.log(idKey);
+                //     console.log(ret);
+                //     return ret;
+                // };
+
+                if (response.data.status === 'OK') {
+                    if ($scope.attraction_type === 'art_gallery'){
+
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+                        // then open div and add new markers
+                        $scope.list_art_gallery = response.data.results;
+
+                        console.log($scope.list_art_gallery);
+
+                        // for (var i = 0; i < response.data.results.length; i++) {
+                        //     markers.push(createMarker(i,'art_galleries'))
+                        // }
+
+                        // $scope.randomMarkers = markers;
+
+                    }
+                    if ($scope.attraction_type === 'mosque'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
 
 
-            var request = {
-                location: {
-                    lat: lat,
-                    lng: lng
-                },
-                radius: '500',
-                type: [$scope.attraction_type]
-            };
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'museum'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
 
-            console.log("request for attraction type: " + request.type);
+                        // FIRST clear the old markers
 
-            service.nearbySearch(request, attraction_search);
 
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'casino'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'park'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'church'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'stadium'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'synagogue'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'zoo'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'hindu_temple'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'anotherone'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'anotherone'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'another'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'another'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'another'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+                    if ($scope.attraction_type === 'another'){
+                        // I want this area to hold logic to open up the div
+                        // of points and
+                        // maybe create markers but they must be deleted
+                        // once another scope.attraction_type is chosen.
+
+                        // FIRST clear the old markers
+
+
+                        // then open div and add new markers
+                    }
+
+                // alert("attraction_search status: " +  response.status);
+                    return;
+                }
+
+                console.error(status);
+
+            });
         }
-    }
+    };
 
-    function attraction_search(results, status) {
-
-        alert("attraction_search status: " +  status);
-        console.log(results);
-        // THIS IS FOR HANDELING ERRORS
-        if (status !== google.maps.places.PlacesServiceStatus.OK) {
-            console.error(status);
-            return;
-        }
-        // // THIS SECTION WILL POPULATE THE DIV FOR THE RESPECTIVE TYPE
-        // for (var i = 0; i < results[i]; i++) {
-        //     populateDiv(result);
-        // }
-    }
-
-
-
-
-});
+}]);
