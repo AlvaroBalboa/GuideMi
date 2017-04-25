@@ -41,7 +41,7 @@ public class GuideMiApplication {
 				.pathMapping("/rest");
 	}
 
-	//Override MustacheAutoConfiguration to support defaultValue("")
+//	Override MustacheAutoConfiguration to support defaultValue("")
 	@Bean
 	public Mustache.Compiler mustacheCompiler(Mustache.TemplateLoader mustacheTemplateLoader,
 											  Environment environment) {

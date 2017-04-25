@@ -158,17 +158,17 @@
                         </div>
                     </div>
 
+                    <div id="artList"></div>
+                    <!--<div ng-if="list_art_gallery" >-->
+                        <!--this is the div is for art_gallery-->
 
-                    <div ng-if="list_art_gallery" >
-                        this is the div is for art_gallery
+                        <!--<div ng-repeat="art_gallery in list_art_gallery">-->
 
-                        <div ng-repeat="art_gallery in list_art_gallery">
-
-                            <h4>name: {{art_gallery.name}}</h4>
-                            <h5>placeID: {{art_gallery.place_id}}</h5>
-
-                        </div>
-                    </div>
+                            <!--<h4>name: {{list_art_gallery[$index].name}}</h4>-->
+                            <!--<h5>placeID: {{art_gallery.place_id}}</h5>-->
+                            <!--<h5>status = {{art_gallery[$index].status}}</h5>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <!--this is the div is for mosque-->
                     <!--<div>-->
 
@@ -207,71 +207,8 @@
                     <!--</div>-->
 
                 </div>
-
-
             </div>
-
-
         </div>
-
-        <!--Old stuff from jquery-->
-        <!--<div class="row">-->
-            <!---->
-            <!--<div class="col-lg-12 text-center" ng-app="googleMap">-->
-                <!--&lt;!&ndash;This are will have the form template and also have the map near the center&ndash;&gt;-->
-                <!--<div class="jumbotron" ng-controller="mainController">-->
-                    <!--<div class="form col-lg-4">-->
-                        <!--&lt;!&ndash;My logo&ndash;&gt;-->
-                        <!--<div class="row">-->
-                            <!--<img src="/img/globe-logo.png" style="height: 50px"/>-->
-                            <!--<br/>-->
-                        <!--</div>-->
-
-                        <!--<div class="row">-->
-                            <!--<p>Where your journey begins</p>-->
-                            <!--<input type="text" id="startLocation" placeholder="Where your journey begins" size="30" required>-->
-                        <!--</div>-->
-                        <!--<br/>-->
-                        <!--<div class="row">-->
-                        <!--&lt;!&ndash;<span class="formfield">&ndash;&gt;-->
-                            <!--<input type="text" id="endLocation" placeholder="Finish goal" size="30" required>-->
-                            <!--&lt;!&ndash;autocomplete="off" style="font-size: 5.8px;">&ndash;&gt;-->
-                        <!--&lt;!&ndash;</span>&ndash;&gt;-->
-                        <!--<br/>-->
-                        <!--</div>-->
-                        <!--<div class="row">-->
-                            <!--<button id="map-it">Map it</button>-->
-                        <!--</div>-->
-                        <!--The type of POIs that the user wants to see.-->
-                        <!--&lt;!&ndash;TODO This is the type POI that they want to try and visit&ndash;&gt;-->
-                        <!--&lt;!&ndash;old school form for java that I will replace with jquery and later Angularjs&ndash;&gt;-->
-                        <!--&lt;!&ndash;<form>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</form>&ndash;&gt;-->
-                    <!--</div>-->
-
-                    <!--<google-map control="map.control" center="map.center" zoom="map.zoom">-->
-                        <!--<marker coords="marker.center"></marker>-->
-                    <!--</google-map>-->
-                    <!--&lt;!&ndash;in angular you dont need the div u need a google maps element&ndash;&gt;-->
-                    <!--&lt;!&ndash;<div id="googleMap">&ndash;&gt;-->
-                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                    <!--<div class="form col-lg-4">-->
-                        <!--<div class="row" id="directionsPanel">-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;This area will span underneath the map area&ndash;&gt;-->
-            <!--<div>-->
-                <!--<div id="results">-->
-
-                <!--</div>-->
-            <!--</div>-->
-
-
-        <!--</div>-->
-
     </div>
 </section>
 
@@ -387,6 +324,7 @@
 <script src="/javascript/page-script.js"></script>
 <script src="/javascript/photoslider.js"></script>
 <script src="javascript/app.js"></script>
+<script src="/javascript/displayList.js"></script>
 
 <!--<script src="/javascript/jqueryMap.js"></script>-->
 

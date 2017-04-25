@@ -71,7 +71,6 @@ public class HomeControllers {
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public String userPage(Model model, HttpSession session){
 
-
         model.addAttribute("appId",appId);
         return "userProfile";
     }

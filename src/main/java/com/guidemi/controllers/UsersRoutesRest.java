@@ -14,7 +14,10 @@ import org.springframework.web.client.RestTemplate;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by souporman on 4/2/17.
@@ -23,6 +26,17 @@ import java.util.List;
 @RequestMapping("/rest")
 @Api(value="userRoutes", description="these are rest apis for each specific user routes and current wayPoints")
 public class UsersRoutesRest {
+
+    public List artArray = new ArrayList();
+    public List museumArray = new ArrayList();
+    public List casinoArray = new ArrayList();
+    public List parkArray = new ArrayList();
+    public List mosqueArray = new ArrayList();
+
+//    public List artArray;
+//    public List artArray;
+//    public List artArray;
+//    public List artArray;
 
     @Autowired
     UserRepo users;
@@ -48,7 +62,7 @@ public class UsersRoutesRest {
     }
 
     @RequestMapping(path = "/nearbySearch&{lat}&{lng}&{attraction_type}",method = RequestMethod.GET)
-    public String getNearby(@PathVariable("lat") String lat,@PathVariable("lng") String lng,@PathVariable("attraction_type") String attraction_type){
+    public void getNearby(@PathVariable("lat") String lat,@PathVariable("lng") String lng,@PathVariable("attraction_type") String attraction_type){
         String placesSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?" +
                 "location=%s" +
                 ",%s&" +
@@ -56,9 +70,26 @@ public class UsersRoutesRest {
                 "types=%s&" +
                 "key=%s";
 
-        String response = restTemplate.getForObject(String.format(placesSearch,lat,lng,attraction_type,googleSearchKey),String.class);
-
-        return response;
+        Map responseHash = restTemplate.getForObject(String.format(placesSearch,lat,lng,attraction_type,googleSearchKey),HashMap.class);
+        if(attraction_type.equalsIgnoreCase("art_gallery")) {
+            artArray.add(responseHash.get("results"));
+        }
+//        else if (attraction_type.equalsIgnoreCase("mosque")){
+//            mosqueArray = (List) responseHash.get("results");
+//
+//        }
+//        else if (attraction_type.equalsIgnoreCase("museum")){
+//            museumArray = (List) responseHash.get("results");
+//
+//        }
+//        else if (attraction_type.equalsIgnoreCase("casino")){
+//            casinoArray = (List) responseHash.get("results");
+//
+//        }
+//        else if (attraction_type.equalsIgnoreCase("park")){
+//            parkArray = (List) responseHash.get("results");
+//
+//        }
     }
 //    @RequestMapping(path = "/{userId}/",method = RequestMethod.GET)
 //    public void template(){
@@ -106,4 +137,8 @@ public class UsersRoutesRest {
 //        return citizenData.findOne(id);
 //    }
 
+    @RequestMapping(value = "/results/art_gallery",method = RequestMethod.GET)
+    public List getArtGallery(){
+        return artArray;
+    }
 }
