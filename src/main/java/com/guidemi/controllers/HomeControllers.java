@@ -20,9 +20,9 @@ import java.util.Map;
 public class HomeControllers {
 
     //This is setting up a redirect for the dev cycle
-    public static final String REDIRECT = "http://localhost:8080/user/login";
+    public static final String REDIRECT = "https://desolate-cliffs-89280.herokuapp.com/user/login";
 
-    //I want to keep the same session getter and don't want it getting confussed with anything else
+    //I want to keep the same session getter and don't want it getting confused with anything else
     public static final String SESSION_USERNAME= "username";
 
     //This grabs the app secret from the application properties
@@ -41,7 +41,7 @@ public class HomeControllers {
     @Autowired
     RestTemplate restTemplate;
 
-    //This is an access token given to the app after the initial login token was recieved
+    //This is an access token given to the app after the initial login token was received
     public String appAccessToken;
 
     //This uses the appId and the appSecret to get the app token
