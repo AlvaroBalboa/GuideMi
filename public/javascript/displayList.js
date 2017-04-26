@@ -12,13 +12,12 @@ function displayList() {
         function artlist() {
             $.get("/rest/results/art_gallery", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
                     $("#artList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='mosque'){
+    else if(selectedItem=='Mosque'){
         setTimeout(mosquelist,5000);
         function mosquelist() {
             $.get("/rest/results/mosque", function (data) {
@@ -28,110 +27,82 @@ function displayList() {
             });
         }
     }
-    else if(selectedItem=='museum'){
+    else if(selectedItem=='Museum'){
         setTimeout(museumlist,5000);
         function museumlist() {
             $.get("/rest/results/museum", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#museumList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='casino'){
+    else if(selectedItem=='Casino'){
         setTimeout(casinolist,5000);
         function casinolist() {
             $.get("/rest/results/casino", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#casinoList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='park'){
+    else if(selectedItem=='Park'){
         setTimeout(parklist,5000);
         function parklist() {
             $.get("/rest/results/park", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#parkList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='church'){
+    else if(selectedItem=='Church'){
         setTimeout(churchlist,5000);
         function churchlist() {
             $.get("/rest/results/church", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#churchList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='stadium'){
+    else if(selectedItem=='Stadium'){
         setTimeout(stadiumlist,5000);
         function stadiumlist() {
             $.get("/rest/results/stadium", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#stadiumList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='church'){
-        setTimeout(churchlist,5000);
-        function churchlist() {
-            $.get("/rest/results/church", function (data) {
-                for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
-                }
-            });
-        }
-    }
-    else if(selectedItem=='synagogue'){
+    else if(selectedItem=='Synagogue'){
         setTimeout(synagoguelist,5000);
         function synagoguelist() {
             $.get("/rest/results/synagogue", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#synagogueList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='zoo'){
+    else if(selectedItem=='Zoo'){
         setTimeout(zoolist,5000);
         function zoolist() {
             $.get("/rest/results/zoo", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#zooList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
     }
-    else if(selectedItem=='hindu_temple'){
+    else if(selectedItem=='Hindu Temple'){
         setTimeout(hindu_templelist,5000);
         function hindu_templelist() {
             $.get("/rest/results/hindu_temple", function (data) {
                 for (var i in data) {
-                    console.log(data[i]);
-                    var text = data[i];
-                    $("#artList").append($("<li>").text(text));
+                    $("#hinduList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
         }
