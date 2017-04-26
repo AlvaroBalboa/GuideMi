@@ -1,9 +1,6 @@
 package com.guidemi.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by souporman on 4/2/17.
@@ -16,6 +13,8 @@ public class POI {
     @GeneratedValue
     int id;
 
+    @Column
+    String name;
 
     long lat;
     long lng;
@@ -23,8 +22,10 @@ public class POI {
     public POI() {
     }
 
-
-/*//TODO THIS IS THE PLACES FROM GOOGLE INFO
+    public POI(String name) {
+        this.name = name;
+    }
+    /*//TODO THIS IS THE PLACES FROM GOOGLE INFO
 
     {
    "html_attributions" : [],

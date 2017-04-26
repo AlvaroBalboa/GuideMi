@@ -128,13 +128,14 @@
                             </div>
                         </div>
                     </form>
-                    <br/>
-                    <br/>
-                    <div class="form-group">
-                        <form>
-                        <label for="attraction_type" class="col-sm-2 control-label">Attraction</label>
+                </div>
+                <br/>
+                <br/>
+                <p></p>
+                <div class="form-group">
+                    <label for="attraction_type" class="col-sm-2 control-label" >Attraction</label>
                         <div class="col-sm-8">
-                            <select class="selectPicker" id="attraction_type" ng-model="attraction_type" ng-change="getAttraction()">
+                            <select class="selectPicker" id="attraction_type" ng-model="attraction_type" ng-change="getAttraction();" onchange="displayList();">
                                 <option value="art_gallery">Art Gallery</option>
                                 <option value="mosque">Mosque</option>
                                 <option value="museum">Museum</option>
@@ -147,65 +148,68 @@
                                 <option value="hindu_temple">Hindu Temple</option>
                             </select>
                         </div>
-                        </form>
-                    </div>
-                    <br/>
-                    <div class="col-sm-offset-2 col-sm-8">
-                        <button class="btn btn-primary" ng-click="showDiv=!showDiv">Show Directions</button>
-                        <div class="check-element animate-show-hide" ng-show="showDiv">
-                            <div id="directionsList" ng-show="directions.showList" class="panel panel-primary">
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <div class="panel price panel-blue">
+                                <div class="panel-heading  text-center">
+                                    <h5>Art Galleries</h5>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <p class="lead" style="font-size:15px">along path</p>
+                                </div>
+                                <ul class="list-group list-group-flush text-center" id="artList">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <div class="panel price panel-blue">
+                                <div class="panel-heading arrow_box text-center">
+                                    <h5>Mosque</h5>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <p class="lead" style="font-size:15px">along path</p>
+                                </div>
+                                <ul class="list-group list-group-flush text-center" id="mosqueList">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <div class="panel price panel-blue">
+                                <div class="panel-heading arrow_box text-center">
+                                    <h5>Casino</h5>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <p class="lead" style="font-size:15px">along path</p>
+                                </div>
+                                <ul class="list-group list-group-flush text-center" id="casinoList">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
+                            <div class="panel price panel-blue">
+                                <div class="panel-heading arrow_box text-center">
+                                    <h4>Museum</h4>
+                                </div>
+                                <div class="panel-body text-center">
+                                    <p class="lead" style="font-size:15px">along path</p>
+                                </div>
+                                <ul class="list-group list-group-flush text-center" id="museumList">
+                                </ul>
                             </div>
                         </div>
                     </div>
-
-                    <div id="artList"></div>
-                    <!--<div ng-if="list_art_gallery" >-->
-                        <!--this is the div is for art_gallery-->
-
-                        <!--<div ng-repeat="art_gallery in list_art_gallery">-->
-
-                            <!--<h4>name: {{list_art_gallery[$index].name}}</h4>-->
-                            <!--<h5>placeID: {{art_gallery.place_id}}</h5>-->
-                            <!--<h5>status = {{art_gallery[$index].status}}</h5>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--this is the div is for mosque-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for museum-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for casino-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for park-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for church-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for stadium-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for synagogue-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for zoo-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-                    <!--this is the div is for hindu_temple-->
-                    <!--<div>-->
-
-                    <!--</div>-->
-
+                </div>
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button class="btn btn-primary" ng-click="showDiv=!showDiv">Show Directions</button>
+                    <div class="check-element animate-show-hide" ng-show="showDiv">
+                        <div id="directionsList" ng-show="directions.showList" class="panel panel-primary">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -223,7 +227,7 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 text-center">
-                <p>This section will hold huge cities that have many POIs, instead of showing along route will show within city limits</p>
+                <p style="font-size: smaller">This section will hold huge cities that have many POIs, instead of showing along route will show within city limits</p>
             </div>
             <div class="col-lg-4 col-lg-offset-2">
                 <p>customization.</p>
@@ -245,10 +249,13 @@
                 <div class="footer-col col-md-4">
                     <h3>Who I am</h3>
                     <img src=""/>
-                    <p>My info goes here
+                    <p style="font-size: smaller">My info goes here
                         <br>more info
                         <br/>moremoremoremore
                         <br/>LOLOLOLOOL
+                    </p>
+                    <p style="font-size: smaller">
+
                     </p>
                 </div>
 
@@ -257,16 +264,16 @@
                     <h3>Find me on the Web</h3>
                     <ul class="list-inline">
                         <li>
-                            <a href="#" class="btn-social btn-outline"><span class="sr-only">GitHub</span><i class="fa fa-fw fa fa-github"></i></a>
+                            <a href="#">GitHub</a>
                         </li>
                         <li>
-                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+                            <a href="#">Twitter</a>
                         </li>
                         <li>
-                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+                            <a href="#">Linked In</a>
                         </li>
                         <li>
-                            <a href="#" class="btn-social btn-outline"><span class="sr-only">Email-Me</span><i class="fa fa-fw fa-microsoft"></i></a>
+                            <a href="#">Email-Me</a>
                         </li>
                     </ul>
                 </div>
@@ -274,7 +281,7 @@
                 <!--A thank you section for class-->
                 <div class="footer-col col-md-4">
                     <h3>Thank you Uncommon Coders</h3>
-                    <p>The java immersive boot camp has helped my get the the needed knowledge to begin a new career. Thank you Parakash, Mike, Trung, and all the staff of the program. If there are any other veterans hoping to find a beginning step in the field of coding or IT <a href="http://www.nvcc.edu/workforce/uncommon-coders/index.html">begin here</a>.</p>
+                    <p style="font-size: smaller">The java immersive boot camp has helped my get the the needed knowledge to begin a new career. Thank you Parakash, Mike, Trung, and all the staff of the program. If there are any other veterans hoping to find a beginning step in the field of coding or IT <a href="http://www.nvcc.edu/workforce/uncommon-coders/index.html">begin here</a>.</p>
                 </div>
 
 
@@ -287,7 +294,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    Copyright &copy; GuideMi 2017 --------- not really-------------
+                    Copyright &copy; GuideMi 2017
                 </div>
             </div>
         </div>
@@ -324,7 +331,7 @@
 <script src="/javascript/page-script.js"></script>
 <script src="/javascript/photoslider.js"></script>
 <script src="javascript/app.js"></script>
-<script src="/javascript/displayList.js"></script>
+<script src="javascript/displayList.js"></script>
 
 <!--<script src="/javascript/jqueryMap.js"></script>-->
 

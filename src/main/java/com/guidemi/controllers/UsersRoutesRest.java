@@ -1,6 +1,7 @@
 package com.guidemi.controllers;
 
 import com.fasterxml.jackson.core.*;
+import com.guidemi.entities.POI;
 import com.guidemi.services.POIRepo;
 import com.guidemi.services.RouteRepo;
 import com.guidemi.services.UserRepo;
@@ -71,25 +72,84 @@ public class UsersRoutesRest {
                 "key=%s";
 
         Map responseHash = restTemplate.getForObject(String.format(placesSearch,lat,lng,attraction_type,googleSearchKey),HashMap.class);
-        if(attraction_type.equalsIgnoreCase("art_gallery")) {
-            artArray.add(responseHash.get("results"));
+        String status = (String) responseHash.get("status");
+        if(attraction_type.equalsIgnoreCase("art_gallery")){
+            List bravoSierra = new ArrayList();
+            if(status.equalsIgnoreCase("ok")) {
+                bravoSierra.add(responseHash.get("results"));
+                for (int i = 0; i < bravoSierra.size(); i++) {
+                    List object = (List) bravoSierra.get(i);
+                    for (int l = 0; l < object.size(); l++) {
+                        HashMap lastList = (HashMap) object.get(l);
+                        artArray.add(lastList.get("name"));
+                    }
+                }
+            }
         }
 //        else if (attraction_type.equalsIgnoreCase("mosque")){
-//            mosqueArray = (List) responseHash.get("results");
-//
+//            List bravoSierra = new ArrayList();
+//            clearLists();
+//            if(status.equalsIgnoreCase("ok")) {
+//                bravoSierra.add(responseHash.get("results"));
+//                for (int i = 0; i < bravoSierra.size(); i++) {
+//                    List object = (List) bravoSierra.get(i);
+//                    for (int l = 0; l < bravoSierra.size(); l++) {
+//                        HashMap lastList = (HashMap) object.get(l);
+//                        mosqueArray.add(lastList.get("name"));
+//                    }
+//                }
+//            }
 //        }
 //        else if (attraction_type.equalsIgnoreCase("museum")){
-//            museumArray = (List) responseHash.get("results");
-//
+//            List bravoSierra = new ArrayList();
+//            clearLists();
+//            if(status.equalsIgnoreCase("ok")) {
+//                bravoSierra.add(responseHash.get("results"));
+//                for (int i = 0; i < bravoSierra.size(); i++) {
+//                    List object = (List) bravoSierra.get(i);
+//                    for (int l = 0; l < bravoSierra.size(); l++) {
+//                        HashMap lastList = (HashMap) object.get(l);
+//                        museumArray.add(lastList.get("name"));
+//                    }
+//                }
+//            }
 //        }
 //        else if (attraction_type.equalsIgnoreCase("casino")){
-//            casinoArray = (List) responseHash.get("results");
-//
+//            List bravoSierra = new ArrayList();
+//            clearLists();
+//            if(status.equalsIgnoreCase("ok")) {
+//                bravoSierra.add(responseHash.get("results"));
+//                for (int i = 0; i < bravoSierra.size(); i++) {
+//                    List object = (List) bravoSierra.get(i);
+//                    for (int l = 0; l < bravoSierra.size(); l++) {
+//                        HashMap lastList = (HashMap) object.get(l);
+//                        casinoArray.add(lastList.get("name"));
+//                    }
+//                }
+//            }
 //        }
 //        else if (attraction_type.equalsIgnoreCase("park")){
-//            parkArray = (List) responseHash.get("results");
-//
+//            List bravoSierra = new ArrayList();
+//            clearLists();
+//            if(status.equalsIgnoreCase("ok")) {
+//                bravoSierra.add(responseHash.get("results"));
+//                for (int i = 0; i < bravoSierra.size(); i++) {
+//                    List object = (List) bravoSierra.get(i);
+//                    for (int l = 0; l < bravoSierra.size(); l++) {
+//                        HashMap lastList = (HashMap) object.get(l);
+//                        parkArray.add(lastList.get("name"));
+//                    }
+//                }
+//            }
 //        }
+    }
+
+    public void clearLists(){
+       artArray.clear();
+       museumArray.clear();
+       casinoArray.clear();
+       parkArray.clear();
+       mosqueArray.clear();
     }
 //    @RequestMapping(path = "/{userId}/",method = RequestMethod.GET)
 //    public void template(){
@@ -140,5 +200,21 @@ public class UsersRoutesRest {
     @RequestMapping(value = "/results/art_gallery",method = RequestMethod.GET)
     public List getArtGallery(){
         return artArray;
+    }
+    @RequestMapping(value = "/results/museum",method = RequestMethod.GET)
+    public List getMuseumArray(){
+        return museumArray;
+    }
+    @RequestMapping(value = "/results/casino",method = RequestMethod.GET)
+    public List getCasinoArray(){
+        return casinoArray;
+    }
+    @RequestMapping(value = "/results/mosque",method = RequestMethod.GET)
+    public List getMosqueArray(){
+        return mosqueArray;
+    }
+    @RequestMapping(value = "/results/park",method = RequestMethod.GET)
+    public List getParkArray(){
+        return parkArray;
     }
 }

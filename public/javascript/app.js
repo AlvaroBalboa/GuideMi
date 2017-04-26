@@ -86,200 +86,200 @@ myApp.controller('mainController', ['$scope', '$http','$document', function($sco
                 //     console.log(ret);
                 //     return ret;
                 // };
-
-                if (response.data.status === 'OK') {
-                    if ($scope.attraction_type === 'art_gallery'){
-
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-                        // then open div and add new markers
-                        $scope.list_art_gallery = response.data.results;
-
-                        console.log($scope.list_art_gallery);
-
-                        // for (var i = 0; i < response.data.results.length; i++) {
-                        //     markers.push(createMarker(i,'art_galleries'))
-                        // }
-
-                        // $scope.randomMarkers = markers;
-
-                    }
-                    if ($scope.attraction_type === 'mosque'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'museum'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'casino'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'park'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'church'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'stadium'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'synagogue'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'zoo'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'hindu_temple'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'anotherone'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'anotherone'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'another'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'another'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'another'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-                    if ($scope.attraction_type === 'another'){
-                        // I want this area to hold logic to open up the div
-                        // of points and
-                        // maybe create markers but they must be deleted
-                        // once another scope.attraction_type is chosen.
-
-                        // FIRST clear the old markers
-
-
-                        // then open div and add new markers
-                    }
-
-                // alert("attraction_search status: " +  response.status);
-                    return;
-                }
-
-                console.error(status);
+                //
+                // if (response.data.status === 'OK') {
+                //     if ($scope.attraction_type === 'art_gallery'){
+                //
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //         // then open div and add new markers
+                //         $scope.list_art_gallery = response.data.results;
+                //
+                //         console.log($scope.list_art_gallery);
+                //
+                //         // for (var i = 0; i < response.data.results.length; i++) {
+                //         //     markers.push(createMarker(i,'art_galleries'))
+                //         // }
+                //
+                //         // $scope.randomMarkers = markers;
+                //
+                //     }
+                //     if ($scope.attraction_type === 'mosque'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'museum'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'casino'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'park'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'church'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'stadium'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'synagogue'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'zoo'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'hindu_temple'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'anotherone'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'anotherone'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'another'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'another'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'another'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //     if ($scope.attraction_type === 'another'){
+                //         // I want this area to hold logic to open up the div
+                //         // of points and
+                //         // maybe create markers but they must be deleted
+                //         // once another scope.attraction_type is chosen.
+                //
+                //         // FIRST clear the old markers
+                //
+                //
+                //         // then open div and add new markers
+                //     }
+                //
+                // // alert("attraction_search status: " +  response.status);
+                //     return;
+                // }
+                //
+                // console.error(status);
 
             });
         }
