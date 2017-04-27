@@ -4,78 +4,21 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
-<div class="top-block-outer">
-    <div class="top-block">
-        <div class="selling-points-block no-right-padding">
-            <div class="main">
-                <div class="logo-container">
-                    <img class="at-logo" src="https://cdn-assets.alltrails.com/assets/registration/AllTrailsLogoIcon-e850950c8569e8a13481dfe8f487da1e.png">
-                </div>
-                <h2 class="login-call">Log in to AllTrails</h2>
-                <div class="list-container">
-                    <ul class="selling-points">
-                        <li class="maps">Access 50,000+ trail maps</li>
-                        <li class="directions">Get driving directions</li>
-                        <li class="favorites">Save your favorite trails</li>
-                    </ul>
-                </div>
+<body background="img/logPagePicture.jpg" style='padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;'>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-6">
+            <div class="panel panel-default">
+                <a href="https://www.facebook.com/v2.9/dialog/oauth?
+                client_id={{appId}}
+                &redirect_uri={{redirect}}"><img src="img/FB-f-Logo__blue_72.png"/></a>
+                <div class="fb-login-button" data-scope="email" onclick="fbStatus();">Connect</div>
             </div>
-        </div><!-- .col-xx-8 -->
-        <div class="no-left-padding no-right-padding col-lg-4 col-md-4 col-sm-4">
-            <div class="login-container">
-                <div data-react-class="LoginForm" data-react-props="{&quot;returnTo&quot;:&quot;https://www.alltrails.com/trail/us/virginia/wakefield-park-trail&quot;}" id="login-form">
-                    <div data-reactroot="" data-reactid="1" data-react-checksum="1538397159">
-                        <div class="fb-reg" data-reactid="2">
-                            <div class="fb btn-container" data-reactid="3">
-                                <a class="flat-fb-btn" href="#" data-reactid="4">
-                                    <div data-reactid="5">
-                                        <span data-reactid="6">Log in with Facebook</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div id="googleSignInBtn" class="google btn-container" data-reactid="7">
-                                <a class="flat-fb-btn" href="#" data-reactid="8">
-                                    <div data-reactid="9">
-                                        <span data-reactid="10">Log in with Google</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="or-container" data-reactid="11">
-                            <h2 class="or-rule" data-reactid="12">
-                                <span data-reactid="13">or</span>
-                            </h2>
-                        </div>
-                        <div id="register-form" data-reactid="14">
-                            <div class="form-content" data-reactid="15">
-                                <!-- react-text: 16 --><!-- /react-text -->
-                                <div class="holder" data-reactid="17">
-                                    <div class="input required string required" data-reactid="18">
-                                        <input type="email" class="string email required text" id="user_email" maxlength="150" placeholder="Email" required="" size="50" data-reactid="19">
-                                        <!-- react-text: 20 --><!-- /react-text -->
-                                    </div>
-                                </div>
-                                <div class="holder password" data-reactid="21">
-                                    <div class="input password required" data-reactid="22">
-                                        <input type="password" class="string password required text" id="user_password" maxlength="20" placeholder="Password" required="" size="50" data-reactid="23">
-                                        <!-- react-text: 24 --><!-- /react-text -->
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-reactid="25">
-                                <input type="submit" class="new-btn login" name="commit" value="Login" data-reactid="26">
-                            </div><div class="forgot" data-reactid="27">
-                            <a href="/users/password/new" data-reactid="28">Forgot Password?</a>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="or-signup">
-                    <p>Don't have an account? <a href="/signup">Sign up</a>.</p>
-                </div>
-            </div>
-        </div><!-- .col-xx-4 -->
+        </div>
     </div>
 </div>
 </body>

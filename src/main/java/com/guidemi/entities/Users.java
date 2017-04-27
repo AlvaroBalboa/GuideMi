@@ -25,16 +25,16 @@ public class Users {
     @Column(length = 50, unique = true, nullable = false)
     private String login;
 
-    @JsonIgnore
-    @NotNull
-    @Size(min = 60, max = 60)
-    @Column(name = "password_hash",length = 60)
-    private String password;
+//    @JsonIgnore
+////    @NotNull
+//    @Size(min = 60, max = 60)
+//    @Column(name = "password_hash",length = 60)
+//    private String password;
 
-    @Column(nullable = false)
+    @Column
     private String firstName;
 
-    @Column(nullable = false)
+    @Column
     private String lastName;
 
     @Email
@@ -42,12 +42,12 @@ public class Users {
     @Column(length = 100, unique = true)
     private String email;
 
-    @NotNull
-    @Column(nullable = false)
-    private boolean activated = false;
+//    @NotNull
+//    @Column(nullable = false)
+//    private boolean activated = false;
 
     @Size(max = 256)
-    @Column(name = "image_url", length = 256)
+    @Column(name = "image_url")
     private String profilePicture;
 
     @Column
@@ -75,6 +75,10 @@ public class Users {
     public Users() {
     }
 
+    public Users(String name,String profilePicture){
+        this.login=name;
+        this.profilePicture=profilePicture;
+    }
     //Lowercase the login before saving it in database
     public void setLogin(String login) {
         this.login = login.toLowerCase(Locale.ENGLISH);
@@ -92,13 +96,13 @@ public class Users {
         return login;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
+//
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
 
     public String getFirstName() {
         return firstName;
@@ -124,13 +128,13 @@ public class Users {
         this.email = email;
     }
 
-    public boolean isActivated() {
-        return activated;
-    }
-
-    public void setActivated(boolean activated) {
-        this.activated = activated;
-    }
+//    public boolean isActivated() {
+//        return activated;
+//    }
+//
+//    public void setActivated(boolean activated) {
+//        this.activated = activated;
+//    }
 
     public String getProfilePicture() {
         return profilePicture;
@@ -211,7 +215,7 @@ public class Users {
 
     public Users(String login, String password, String firstName, String lastName, String email) {
         this.login = login;
-        this.password = password;
+//        this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
