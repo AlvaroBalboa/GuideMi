@@ -22,7 +22,8 @@ import java.util.Map;
 public class HomeControllers {
 
     //This is setting up a redirect for the dev cycle
-    public static final String REDIRECT = "https://desolate-cliffs-89280.herokuapp.com/user/login";
+//    public static final String REDIRECT = "https://desolate-cliffs-89280.herokuapp.com/user/login";
+    public static final String REDIRECT = "http://localhost:8080/user/login";
 
     //I want to keep the same session getter and don't want it getting confused with anything else
     public static final String SESSION_USERNAME= "username";
@@ -66,7 +67,7 @@ public class HomeControllers {
 
         String currentUser = (String) session.getAttribute(SESSION_USERNAME);
         Users currentLogged = userRepo.findFirstByLogin(currentUser);
-        if(currentLogged==null){
+        if(currentUser==null){
             return"redirect:/logger";
         }
 
@@ -121,7 +122,7 @@ public class HomeControllers {
         String pictureURL = (String) pictureData.get("url");
         String userName = (String) userResults.get("name");
 
-        userRepo.save(new Users((String) userResults.get("name"),pictureURL));
+        userRepo.save(new Users(userName,pictureURL));
 
         session.setAttribute(SESSION_USERNAME,userName);
         //check the API explorer on facebook

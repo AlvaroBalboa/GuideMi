@@ -193,11 +193,11 @@ public class UsersRoutesRest {
 //        return citizenData.findOne(id);
 //    }
 
-    @RequestMapping(value = "/results/art_gallery",method = RequestMethod.GET)
+    @RequestMapping(path = "/results/art_gallery",method = RequestMethod.GET)
     public List getArtGallery(){
         return artArray;
     }
-    @RequestMapping(value = "/results/museum",method = RequestMethod.GET)
+    @RequestMapping(path = "/results/museum",method = RequestMethod.GET)
     public List getMuseumArray(){
         return museumArray;
     }

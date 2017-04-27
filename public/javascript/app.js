@@ -70,9 +70,9 @@ myApp.controller('mainController', ['$scope', '$http','$document', function($sco
         for (var i = 0; i < steps.length; i++) {
             var lng = directionsResponse.routes[0].legs[0].steps[i].end_location.lng();
             var lat = directionsResponse.routes[0].legs[0].steps[i].end_location.lat();
-
+            console.log(lat,lng);
             $http.get('/rest/nearbySearch&'+lat+'&'+lng+'&'+$scope.attraction_type).then(function(response){
-
+            console.log('call to api made');
                 // Marker functionality
                 // var createMarker = function(i,idKey) {
                 //     var ret = {

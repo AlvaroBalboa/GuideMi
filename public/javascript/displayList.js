@@ -12,6 +12,8 @@ function displayList() {
         function artlist() {
             $.get("/rest/results/art_gallery", function (data) {
                 for (var i in data) {
+                    console.log(data);
+                    console.log(data[i]);
                     $("#artList").append('<li class="list-group-item"><i class="icon-ok text-info"></i> '+data[i] +'</li>');
                 }
             });
