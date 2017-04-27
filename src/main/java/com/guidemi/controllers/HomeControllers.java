@@ -22,7 +22,7 @@ import java.util.Map;
 public class HomeControllers {
 
     //This is setting up a redirect for the dev cycle
-    public static final String REDIRECT = "https://desolate-cliffs-89280.herokuapp.com//user/login";
+    public static final String REDIRECT = "https://desolate-cliffs-89280.herokuapp.com/user/login";
 
     //I want to keep the same session getter and don't want it getting confused with anything else
     public static final String SESSION_USERNAME= "username";
