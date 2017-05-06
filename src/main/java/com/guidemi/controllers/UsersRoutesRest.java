@@ -71,8 +71,14 @@ public class UsersRoutesRest {
                 "types=%s&" +
                 "key=%s";
 
+//        https://developer.nps.gov/api/v0/parks??stateCode=VA
+//        String npsSearch = "https://developer.nps.gov/api/v0/parks??stateCode=%s"
+//        Map nosResponse=restTemplate.getForObject(String.format(npsSearch,state),HashMap.class);
+
         Map responseHash = restTemplate.getForObject(String.format(placesSearch,lat,lng,attraction_type,googleSearchKey),HashMap.class);
         String status = (String) responseHash.get("status");
+
+//        I can do just one set of loops and use if statements to dot add into array
         if(attraction_type.equalsIgnoreCase("art_gallery")){
             List bravoSierra = new ArrayList();
             if(status.equalsIgnoreCase("ok")) {

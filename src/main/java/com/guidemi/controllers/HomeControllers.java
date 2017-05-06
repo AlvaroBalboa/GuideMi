@@ -129,5 +129,4 @@ public class HomeControllers {
 
         return"redirect:/";
     }
-
 }
