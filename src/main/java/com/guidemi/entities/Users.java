@@ -26,7 +26,7 @@ public class Users {
     private String login;
 
 //    @JsonIgnore
-////    @NotNull
+//    @NotNull
 //    @Size(min = 60, max = 60)
 //    @Column(name = "password_hash",length = 60)
 //    private String password;
@@ -151,30 +151,6 @@ public class Users {
     public void setCurrentLocation(String currentLocation) {
         this.currentLocation = currentLocation;
     }
-
-//    public String getActivationKey() {
-//        return activationKey;
-//    }
-//
-//    public void setActivationKey(String activationKey) {
-//        this.activationKey = activationKey;
-//    }
-//
-//    public String getResetKey() {
-//        return resetKey;
-//    }
-//
-//    public void setResetKey(String resetKey) {
-//        this.resetKey = resetKey;
-//    }
-//
-//    public ZonedDateTime getResetDate() {
-//        return resetDate;
-//    }
-//
-//    public void setResetDate(ZonedDateTime resetDate) {
-//        this.resetDate = resetDate;
-//    }
 
     public List<Users> getFriend() {
         return friend;

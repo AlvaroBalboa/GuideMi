@@ -79,7 +79,6 @@ public class UsersRoutesRest {
         String status = (String) responseHash.get("status");
 
 //        I can do just one set of loops and use if statements to dot add into array
-        if(attraction_type.equalsIgnoreCase("art_gallery")){
             List bravoSierra = new ArrayList();
             if(status.equalsIgnoreCase("ok")) {
                 bravoSierra.add(responseHash.get("results"));
@@ -87,64 +86,25 @@ public class UsersRoutesRest {
                     List object = (List) bravoSierra.get(i);
                     for (int l = 0; l < object.size(); l++) {
                         HashMap lastList = (HashMap) object.get(l);
-                        artArray.add(lastList.get("name"));
+                        if(attraction_type.equalsIgnoreCase("art_gallery")) {
+                            artArray.add(lastList.get("name"));
+                        }
+                        else if(attraction_type.equalsIgnoreCase("mosque")) {
+                            mosqueArray.add(lastList.get("name"));
+                        }
+                        else if(attraction_type.equalsIgnoreCase("museum")) {
+                            museumArray.add(lastList.get("name"));
+                        }
+                        else if(attraction_type.equalsIgnoreCase("casino")) {
+                            casinoArray.add(lastList.get("name"));
+                        }
+                        else if(attraction_type.equalsIgnoreCase("park")) {
+                            parkArray.add(lastList.get("name"));
+                        }
                     }
                 }
             }
         }
-        if(attraction_type.equalsIgnoreCase("mosque")){
-            List bravoSierra = new ArrayList();
-            if(status.equalsIgnoreCase("ok")) {
-                bravoSierra.add(responseHash.get("results"));
-                for (int i = 0; i < bravoSierra.size(); i++) {
-                    List object = (List) bravoSierra.get(i);
-                    for (int l = 0; l < object.size(); l++) {
-                        HashMap lastList = (HashMap) object.get(l);
-                        mosqueArray.add(lastList.get("name"));
-                    }
-                }
-            }
-        }
-        else if (attraction_type.equalsIgnoreCase("museum")){
-            List bravoSierra = new ArrayList();
-            if(status.equalsIgnoreCase("ok")) {
-                bravoSierra.add(responseHash.get("results"));
-                for (int i = 0; i < bravoSierra.size(); i++) {
-                    List object = (List) bravoSierra.get(i);
-                    for (int l = 0; l < object.size(); l++) {
-                        HashMap lastList = (HashMap) object.get(l);
-                        museumArray.add(lastList.get("name"));
-                    }
-                }
-            }
-        }
-        else if (attraction_type.equalsIgnoreCase("casino")){
-            List bravoSierra = new ArrayList();
-            if(status.equalsIgnoreCase("ok")) {
-                bravoSierra.add(responseHash.get("results"));
-                for (int i = 0; i < bravoSierra.size(); i++) {
-                    List object = (List) bravoSierra.get(i);
-                    for (int l = 0; l < object.size(); l++) {
-                        HashMap lastList = (HashMap) object.get(l);
-                        casinoArray.add(lastList.get("name"));
-                    }
-                }
-            }
-        }
-        else if (attraction_type.equalsIgnoreCase("park")){
-            List bravoSierra = new ArrayList();
-            if(status.equalsIgnoreCase("ok")) {
-                bravoSierra.add(responseHash.get("results"));
-                for (int i = 0; i < bravoSierra.size(); i++) {
-                    List object = (List) bravoSierra.get(i);
-                    for (int l = 0; l < object.size(); l++) {
-                        HashMap lastList = (HashMap) object.get(l);
-                        parkArray.add(lastList.get("name"));
-                    }
-                }
-            }
-        }
-    }
 
     public void clearLists(){
        artArray.clear();
